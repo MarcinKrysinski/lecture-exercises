@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- Bootstrap CSS -->
     <link
@@ -19,59 +19,88 @@
 <div class="container">
     <h1>Dość złożony formularz</h1>
 
-    <form>
-        <div>
-            <label for="input-name"> Imię </label>
+    <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+            <label for="input-name" class="from-label"> Imię </label>
 
-            <input id="input-name" placeholder="Jan" />
+            <input id="input-name" placeholder="Jan" type="text" class="form-control" required/>
+            <div class="invalid-feedback">
+                Podaj imię.
+            </div>
         </div>
 
-        <div>
-            <label for="input-surname"> Nazwisko </label>
+        <div class="col-md-6">
+            <label for="input-surname" class="from-label"> Nazwisko </label>
 
-            <input id="input-surname" placeholder="Kowalski" />
+            <input id="input-surname" placeholder="Kowalski" type="text" class="form-control" required/>
+            <div class="invalid-feedback">
+                Podaj nazwisko.
+            </div>
         </div>
 
-        <div>
-            <label for="input-email"> Email </label>
+        <div class="col-md-12">
+            <label for="input-email" class="from-label"> Email </label>
 
-            <input type="email" id="input-email" />
+            <input type="email" id="input-email" class="form-control" required/>
+            <div class="invalid-feedback">
+                Podaj poprawny adres e-mail.
+            </div>
         </div>
 
-        <div>
-            <label for="input-password"> Hasło </label>
+        <div class="col-md-12">
+            <label for="input-password" class="from-label"> Hasło </label>
 
-            <input minlength="8" id="input-password" />
+            <input minlength="8" id="input-password" type="password" class="form-control" required/>
+            <div class="invalid-feedback">
+                Podaj hasło składające się co najmniej z 8 znaków.
+            </div>
         </div>
 
-        <div>
-            <label for="input-address"> Ulica </label>
+        <div class="col-md-12">
+            <label for="input-address" class="from-label"> Ulica </label>
 
-            <input id="input-address" placeholder="Grunwaldzka" />
+            <input id="input-address" placeholder="Grunwaldzka" type="text" class="form-control" required/>
+            <div class="invalid-feedback">
+                Podaj ulicę.
+            </div>
         </div>
 
-        <div>
-            <label for="input-postal-code"> Kod pocztowy </label>
-
-            <input id="input-postal-code" placeholder="00-000" />
+        <div class="col-md-6">
+            <label for="input-postal-code" class="from-label"> Kod pocztowy </label>
+            <div class="input-group mb-3">
+                <input id="input-postal-code" placeholder="00" type="text" pattern="\d{2}" class="form-control" maxlength="2"
+                       required/>
+                <span class="input-group-text">-</span>
+                <input id="input-postal-code1" placeholder="000" type="text" pattern="\d{3}" class="form-control" maxlength="3"
+                       required/>
+                <div class="invalid-feedback">
+                    Podaj kod pocztowy.
+                </div>
+            </div>
         </div>
 
-        <div>
-            <label for="input-city"> Miejscowość </label>
+        <div class="col-md-6">
+            <label for="input-city" class="from-label"> Miejscowość </label>
 
-            <input id="input-city" placeholder="Gdańsk" required />
-        </div>
-
-        <div>
-            <div>
-                <input type="checkbox" id="check-terms" />
-
-                <label for="check-terms"> Akceptuję regulamin </label>
+            <input id="input-city" placeholder="Gdańsk" required type="text" class="form-control"/>
+            <div class="invalid-feedback">
+                Podaj miejscowość.
             </div>
         </div>
 
         <div>
-            <button type="submit">Zarejestruj się</button>
+            <div class="form-check">
+                <input type="checkbox" id="check-terms" class="form-check-input" required/>
+
+                <label for="check-terms" class="form-check-label"> Akceptuję regulamin </label>
+                <div class="invalid-feedback">
+                    Zaakceptuj regulamin,aby się zarejestrować.
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary" style="float:right">Zarejestruj się</button>
         </div>
     </form>
 </div>
